@@ -12,6 +12,7 @@ document.addEventListener('scroll', () => {
 });
 
 // Handle scrolling when tapping on the navbar menu
+const toggleIcon = document.querySelector('#toggleIcon');
 const navbarMenu = document.querySelector('.navbar__menu');
 navbarMenu.addEventListener('click', (event) => {
   const target = event.target;
@@ -20,15 +21,22 @@ navbarMenu.addEventListener('click', (event) => {
     return;
   }
   navbarMenu.classList.remove('open');
+  toggleIcon.classList.remove('fa-times');
   scrollIntoView(link);
   selectNavItem(target);
 });
 
 // Navbar toggle button for small screen
+
 const navbarToggleBtn = document.querySelector('.navbar__toggle-btn');
 navbarToggleBtn.addEventListener('click', () => {
   navbarMenu.classList.toggle('open');
+  toggleIcon.classList.toggle('fa-times');
 });
+// const changeIcon = (e) => {
+//   e.classList.toggle('fa-times');
+//   console.log(e);
+// };
 
 // Handle click on "contact me" button on home
 const homeContactBtn = document.querySelector('.home__contact');
@@ -88,8 +96,6 @@ workBtnContainer.addEventListener('click', (e) => {
     projectContainer.classList.remove('anim-out');
   }, 250);
 });
-
-const changeIcon = (e) => e.classList.toggle('fa-times');
 
 // 1. 모든 섹션 요소들과 메뉴아이템들을 가지고 온다
 // 2. IntersectionObserver를 이용해서 모든 섹션들을 관찰한다
