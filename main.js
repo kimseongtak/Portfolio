@@ -94,3 +94,5 @@ workBtnContainer.addEventListener('click', (e) => {
 const scrollIntoView = (selector) => {
   document.querySelector(selector).scrollIntoView({ behavior: 'smooth' });
 };
+
+const changeIcon = (e) => e.classList.toggle('fa-times');
